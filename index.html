@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отдых в Иркутских дурках</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+        h1 {
+            color: #ff4500;
+            text-align: center;
+        }
+        .subtitle {
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background: #ff4500;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #e03e00;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f8f8;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Запись на отдых в Иркутской области</h1>
+        <p class="subtitle">Выбери свою идеальную дурку для незабываемого отдыха!</p>
+        
+        <div class="form-group">
+            <label for="name">Ваше имя:</label>
+            <input type="text" id="name" placeholder="Например, Кузин Руслан">
+        </div>
+        
+        <div class="form-group">
+            <label for="asylum">Выбери заведение:</label>
+            <select id="asylum">
+                <option value="Иркутский областной психоневрологический диспансер">Иркутский областной психоневрологический диспансер</option>
+                <option value="Ангарская психушка">Ангарская психушка</option>
+                <option value="Усольская больница для буйных">Усольская больница для буйных</option>
+                <option value="Братский центр душевного здоровья">Братский центр душевного здоровья</option>
+                <option value="Черемховская лечебница для особо одарённых">Черемховская лечебница для особо одарённых</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="date">Дата заезда:</label>
+            <input type="date" id="date">
+        </div>
+        
+        <button onclick="bookTrip()">Забронировать тур</button>
+        
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        function bookTrip() {
+            const name = document.getElementById('name').value;
+            const asylum = document.getElementById('asylum').value;
+            const date = document.getElementById('date').value;
+            
+            if (!name || !asylum || !date) {
+                alert("Заполни все поля, дебил!");
+                return;
+            }
+            
+            const result = document.getElementById('result');
+            result.innerHTML = `
+                <h3>Поздравляем, ${name}!</h3>
+                <p>Ваш тур в "${asylum}" успешно забронирован на ${date}.</p>
+                <p>Готовься к незабываемым приключениям! 🚑💊</p>
+            `;
+            result.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
